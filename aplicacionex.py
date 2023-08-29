@@ -40,4 +40,13 @@ if file:
     df1 = pd.DataFrame(df)
     if options == "Data":
         data(df)
-
+    elif options =="Plots":
+        st.subheader("***Production History***")
+        df = pd.read_excel(file)
+        df1 = pd.DataFrame(df)
+        fig1, ax1 = plt.subplots()
+        ax1.bar(list(df1['DATEPRD']), list(df1['BORE_OIL_VOL']))
+        plt.title('Annual Oil Production')
+        plt.xlabel('data')
+        plt.ylabel('m3')
+        st.pyplot(fig1)
